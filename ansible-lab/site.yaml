@@ -1,0 +1,10 @@
+- name: Ansible-lab
+  hosts: all
+
+  pre_tasks:
+    - name: Load environment variables
+      ansible.builtin.include_vars:
+        file: "vars/{{ app_env }}.yaml"
+
+  roles:
+    - webserver

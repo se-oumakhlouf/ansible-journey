@@ -1,0 +1,25 @@
+- name: Mon premier playbook
+  hosts: all
+
+  tasks:
+    - name: Afficher un message
+      ansible.builtin.debug:
+        msg: "Hello World!"
+
+    - name: Créer un fichier
+      ansible.builtin.file:
+        path: /tmp/ansible-test.txt
+        state: touch
+
+    - name: Ecrire dans un fichier
+      ansible.builtin.lineinfile:
+        path: /tmp/ansible-test.txt
+        line: "Hello Ansible!"
+
+    - name: Enregistrer dans une variable le contenu du fichier
+      ansible.builtin.command: cat /tmp/ansible-test.txt
+      register: output
+
+    - name: Afficher le résultat de la commande
+      ansible.builtin.debug:
+        var: output.stdout

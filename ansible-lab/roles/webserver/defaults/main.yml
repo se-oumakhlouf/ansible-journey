@@ -1,0 +1,5 @@
+app_name: myapp
+app_version: "1.0.0"
+app_port: 8080
+app_env: main-env
+app_user: main-appuser

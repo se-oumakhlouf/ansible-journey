@@ -1,0 +1,19 @@
+- name: Generate config from template
+  ansible.builtin.template:
+    src: app.conf.j2
+    dest: /tmp/myapp/config/app.conf
+  notify: Restart myapp
+
+- name: Write to log
+  ansible.builtin.lineinfile:
+    path: /tmp/myapp/logs/app.log
+    create: true
+    line: "{{ ansible_date_time.iso8601 }}: Launched by {{ app_user }}"
+
+- name: Read log file
+  ansible.builtin.command: cat /tmp/myapp/logs/app.log
+  register: log_output
+
+- name: Display log content
+  ansible.builtin.debug:
+    var: log_output.stdout

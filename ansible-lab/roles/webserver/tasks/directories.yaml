@@ -1,0 +1,8 @@
+- name: Create directories
+  ansible.builtin.file:
+    path: "/tmp/myapp/{{ item }}"
+    state: directory
+  loop:
+    - logs
+    - config
+    - data
