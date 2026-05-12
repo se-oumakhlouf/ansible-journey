@@ -1,0 +1,18 @@
+- name: Template nginx config
+  ansible.builtin.template:
+    src: vhost.conf.j2
+    dest: /etc/nginx/sites-available/monsite.conf
+  notify: Restart nginx
+
+- name: Enable nginx site
+  ansible.builtin.file:
+    src: /etc/nginx/sites-available/monsite.conf
+    dest: /etc/nginx/sites-enabled/monsite.conf
+    state: link
+  notify: Restart nginx
+
+- name: Remove default nginx site
+  ansible.builtin.file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+  notify: Restart nginx

@@ -1,2 +1,3 @@
 app_env: development
 app_user: dev-appuser
+app_name: My Dev App

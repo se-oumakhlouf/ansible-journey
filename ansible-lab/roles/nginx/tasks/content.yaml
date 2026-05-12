@@ -1,0 +1,10 @@
+- name: Create nginx root directory
+  ansible.builtin.file:
+    path: "{{ nginx_root }}"
+    state: directory
+
+- name: Copy index.html
+  ansible.builtin.template:
+    src: index.conf.j2
+    dest: "{{ nginx_root }}/index.html"
+  notify: Restart nginx

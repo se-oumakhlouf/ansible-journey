@@ -1,2 +1,3 @@
----
-# defaults file for roles/nginx
+nginx_port: 80
+nginx_server_name: monsite.local
+nginx_root: /var/www/monsite
