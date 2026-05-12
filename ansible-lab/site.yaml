@@ -8,3 +8,9 @@
 
   roles:
     - webserver
+
+- name: Setup webserver
+  hosts: webservers
+
+  roles:
+    - nginx
