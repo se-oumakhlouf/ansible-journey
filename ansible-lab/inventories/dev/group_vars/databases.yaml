@@ -1,0 +1,11 @@
+postgresql_databases:
+  - name: FirstDB
+  - name: SecondDB
+
+postgresql_users:
+  - name: "Jon Doe"
+    password: "supersecure"
+    db: FirstDB
+
+  - name: "Jane Doe"
+    password: "evenmoresecure"

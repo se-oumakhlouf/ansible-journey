@@ -15,3 +15,10 @@
 
   roles:
     - nginx
+
+- name: Setup database
+  hosts: databases
+  become: true
+
+  roles:
+    - geerlingguy.postgresql
