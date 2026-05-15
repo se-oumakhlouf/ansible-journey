@@ -4,8 +4,9 @@ postgresql_databases:
 
 postgresql_users:
   - name: "Jon Doe"
-    password: "supersecure"
+    password: "{{ vault_postgres_jon_doe_password }}"
     db: FirstDB
 
   - name: "Jane Doe"
-    password: "evenmoresecure"
+    password: "{{ vault_postgres_jane_doe_password }}"
+    db: SecondDB
