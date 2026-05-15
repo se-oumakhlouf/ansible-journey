@@ -1,5 +1,6 @@
 - name: Ansible-lab
   hosts: all
+  tags: config
 
   pre_tasks:
     - name: Load environment variables
@@ -12,6 +13,7 @@
 - name: Setup webserver
   hosts: webservers
   become: true
+  tags: nginx
 
   roles:
     - nginx
@@ -19,6 +21,7 @@
 - name: Setup database
   hosts: databases
   become: true
+  tags: postgresql
 
   roles:
     - geerlingguy.postgresql

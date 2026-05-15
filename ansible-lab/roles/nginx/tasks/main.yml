@@ -1,11 +1,15 @@
 - name: Install Nginx
+  tags: install
   ansible.builtin.import_tasks: install.yaml
 
 - name: Configure Nginx
+  tags: config
   ansible.builtin.import_tasks: configure.yaml
 
 - name: Configure Page content
+  tags: content
   ansible.builtin.import_tasks: content.yaml
 
 - name: Start and enable nginx
+  tags: start
   ansible.builtin.import_tasks: service.yaml

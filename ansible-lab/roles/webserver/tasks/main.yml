@@ -1,8 +1,11 @@
 - name: Setup user
+  tags: user
   ansible.builtin.import_tasks: user.yaml
 
 - name: Setup directories
+  tags: directories
   ansible.builtin.import_tasks: directories.yaml
 
 - name: Generate config and manage logs
+  tags: config
   ansible.builtin.import_tasks: config.yaml
