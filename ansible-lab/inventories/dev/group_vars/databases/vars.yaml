@@ -10,3 +10,5 @@ postgresql_users:
   - name: "Jane Doe"
     password: "{{ vault_postgres_jane_doe_password }}"
     db: SecondDB
+
+postgresql_version: "14"

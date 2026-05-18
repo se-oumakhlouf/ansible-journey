@@ -23,5 +23,11 @@
   become: true
   tags: postgresql
 
+  pre_tasks:
+    - name: Update apt cache.
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 600
+
   roles:
     - geerlingguy.postgresql
